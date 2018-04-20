@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:dev": "DATABASE_URL=postgres://localhost/auth_demo_test ./node_modules/mocha/bin/mocha --watch --recursive test/server/**/*.js"
+    "test:dev": "JWT_KEY=hello DATABASE_URL=postgres://localhost/auth_demo_test ./node_modules/mocha/bin/mocha --watch --recursive test/server/**/*.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.1.2",
+    "jwt-simple": "^0.5.1",
     "mocha": "^5.1.1",
     "pg": "^7.4.1",
     "sequelize": "^4.37.6"
