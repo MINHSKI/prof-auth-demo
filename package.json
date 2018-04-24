@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:dev": "JWT_KEY=hello DATABASE_URL=postgres://localhost/auth_demo_test ./node_modules/mocha/bin/mocha --watch --recursive test/server/**/*.js"
+    "test:dev": "JWT_KEY=hello DATABASE_URL=postgres://localhost/auth_demo_test nodemon ./node_modules/mocha/bin/mocha test/server/**/*.js --watch"
   },
   "keywords": [],
   "author": "",

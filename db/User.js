@@ -1,10 +1,14 @@
 const conn = require('./conn');
 const { Sequelize } = conn;
 const jwt = require('jwt-simple');
-
 const KEY = process.env.JWT_KEY;
 
 const User = conn.define('user', {
+  id: {
+    type: Sequelize.UUID,
+    primaryKey: true,
+    defaultValue: Sequelize.UUIDV4
+  },
   username: Sequelize.STRING,
   password: Sequelize.STRING
 });
@@ -19,7 +23,8 @@ User.exchangeTokenForUser = function(token){
         throw {
           status: 401
         };
-      });
+      })
+      .catch(ex => { throw { status: 401 }});
   }
   catch(ex){
     return Promise.reject({
